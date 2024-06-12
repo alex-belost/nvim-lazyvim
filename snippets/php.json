@@ -1,0 +1,22 @@
+{
+  "LOG a value from the clipboard": {
+    "prefix": ["log"],
+    "body": "console.log('${TM_FILENAME}:${TM_LINE_NUMBER} -> ' + $CLIPBOARD);"
+  },
+  "TODO comment": {
+    "prefix": ["todo:inline"],
+    "body": "\n$LINE_COMMENT TODO: [$CURRENT_DATE $CURRENT_MONTH_NAME_SHORT $CURRENT_YEAR_SHORT] ${1:Summary}\n"
+  },
+  "Php expression": {
+    "prefix": ["php"],
+    "body": ["<?php $0 ?>"]
+  },
+  "Dump": {
+    "prefix": "dump",
+    "body": [
+      "<pre style='background:lightcoral;margin:20px;'>",
+      "  <?php echo var_dump($0) ?>",
+      "</pre>"
+    ]
+  }
+}
