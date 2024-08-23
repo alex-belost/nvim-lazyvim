@@ -1,7 +1,10 @@
 return {
-  filetypes = { "php", "blade" },
   settings = {
     intelephense = {
+      environment = {
+        documentRoot = "",
+        phpVersion = "8.3.0",
+      },
       stubs = {
         "apache",
         "bcmath",

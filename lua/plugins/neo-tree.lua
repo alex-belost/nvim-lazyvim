@@ -25,6 +25,51 @@ return {
             state.commands.open(state)
           end
         end,
+        ng_generate = function(state)
+          local node = state.tree:get_node()
+          local filepath = node:get_id()
+
+          local entities = {
+            c = { type = "component", msg = "Component" },
+            p = { type = "pipe", msg = "Pipe" },
+            s = { type = "service", msg = "Service" },
+            d = { type = "directive", msg = "Directive" },
+            m = { type = "module", msg = "Module" },
+            g = { type = "guard", msg = "Guard" },
+            r = { type = "resolver", msg = "Resolver" },
+            i = { type = "interface", msg = "Interace" },
+          }
+
+          local messages = {
+            { "\nChoose Angular entity to generate:\n", "Normal" },
+          }
+
+          for i, entity in pairs(entities) do
+            vim.list_extend(messages, {
+              { ("%s."):format(i), "Identifier" },
+              { (" %s\n"):format(entity.msg), "String" },
+            })
+          end
+
+          vim.api.nvim_echo(messages, false, {})
+
+          local choice = vim.fn.getcharstr()
+          local selected_entity = entities[choice]
+
+          if selected_entity then
+            local entity_name = vim.fn.input("Enter Angular " .. selected_entity.msg .. " name: ")
+
+            if entity_name ~= "" then
+              local cmd = string.format("cd %s && ng generate %s %s && cd -", filepath, selected_entity.type, entity_name)
+              vim.fn.system(cmd)
+              vim.notify("Create: " .. entity_name .. " " .. selected_entity.type)
+            else
+              vim.notify("Invalid input for entity name", vim.log.levels.ERROR)
+            end
+          else
+            vim.notify("Invalid choice", vim.log.levels.ERROR)
+          end
+        end,
         copy_selector = function(state)
           local node = state.tree:get_node()
           local filepath = node:get_id()
@@ -72,6 +117,7 @@ return {
           ["<Left>"] = "parent_or_close",
           ["l"] = "child_or_open",
           ["<Right>"] = "child_or_open",
+          ["ga"] = "ng_generate",
           ["Y"] = "copy_selector",
           ["z"] = "close_all_subnodes",
           ["Z"] = "close_all_nodes",
