@@ -5,8 +5,8 @@
 -- local Util = require("lazyvim.util")
 
 -- vim.keymap.del("n", "<leader>l")
--- vim.keymap.del("n", "<S-h>")
--- vim.keymap.del("n", "<S-l>")
+vim.keymap.del("n", "<S-h>")
+vim.keymap.del("n", "<S-l>")
 
 vim.keymap.set("n", "<leader>cn", "<cmd>Navbuddy<cr>", { desc = "Navbuddy" })
 
@@ -31,5 +31,5 @@ vim.keymap.set(
 
 vim.keymap.set("n", "<leader>gn", "<cmd>Neogit<cr>", { silent = true, desc = "Open the Neogit" })
 
--- vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
--- vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
+vim.keymap.set("n", "<S-Tab>", "<cmd>bprevious<cr>", { desc = "Prev buffer" })
+vim.keymap.set("n", "<Tab>", "<cmd>bnext<cr>", { desc = "Next buffer" })
