@@ -296,5 +296,61 @@
   "NanitLib Reset": {
     "prefix": ["nanitReset"],
     "body": "Nanit.reset();"
+  },
+  "INPUT": {
+    "prefix": ["INPUT"],
+    "body": "INPUT"
+  },
+  "OUTPUT": {
+    "prefix": ["OUTPUT"],
+    "body": "OUTPUT"
+  },
+  "INPUT_PULLUP": {
+    "prefix": ["INPUT_PULLUP"],
+    "body": "INPUT_PULLUP"
+  },
+  "INPUT_PULLDOWN": {
+    "prefix": ["INPUT_PULLDOWN"],
+    "body": "INPUT_PULLDOWN"
+  },
+  "HIGH": {
+    "prefix": ["HIGH"],
+    "body": "HIGH"
+  },
+  "LOW": {
+    "prefix": ["LOW"],
+    "body": "LOW"
+  },
+  "for loop": {
+    "prefix": ["for"],
+    "body": [
+      "for (int ${1:i} = 0; ${1:i} < ${2:limit}; ${1:i}++) {",
+      "  ${3:// Code here}",
+      "}"
+    ]
+  },
+  "while loop": {
+    "prefix": ["while"],
+    "body": [
+      "while (${1:condition}) {",
+      "  ${2:// Code here}",
+      "}"
+    ]
+  },
+  "do while loop": {
+    "prefix": ["doWhile"],
+    "body": [
+      "do {",
+      "  ${1:// Code here}",
+      "} while (${2:condition});"
+    ]
+  },
+  "for each loop": {
+    "prefix": ["forEach"],
+    "body": [
+      "for (${1:type} ${2:item} : ${3:collection}) {",
+      "  ${4:// Code here}",
+      "}"
+    ]
   }
 }
