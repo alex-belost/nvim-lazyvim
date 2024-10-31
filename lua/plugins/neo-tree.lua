@@ -13,6 +13,7 @@ return {
             require("neo-tree.ui.renderer").focus_node(state, node:get_parent_id())
           end
         end,
+
         child_or_open = function(state)
           local node = state.tree:get_node()
           if node.type == "directory" or node:has_children() then
@@ -25,6 +26,7 @@ return {
             state.commands.open(state)
           end
         end,
+
         ng_generate = function(state)
           local node = state.tree:get_node()
           local filepath = node:get_id()
@@ -60,7 +62,8 @@ return {
             local entity_name = vim.fn.input("Enter Angular " .. selected_entity.msg .. " name: ")
 
             if entity_name ~= "" then
-              local cmd = string.format("cd %s && ng generate %s %s && cd -", filepath, selected_entity.type, entity_name)
+              local cmd =
+                string.format("cd %s && ng generate %s %s && cd -", filepath, selected_entity.type, entity_name)
               vim.fn.system(cmd)
               vim.notify("Create: " .. entity_name .. " " .. selected_entity.type)
             else
@@ -70,6 +73,7 @@ return {
             vim.notify("Invalid choice", vim.log.levels.ERROR)
           end
         end,
+
         copy_selector = function(state)
           local node = state.tree:get_node()
           local filepath = node:get_id()
@@ -88,6 +92,7 @@ return {
           local messages = {
             { "\nChoose to copy to clipboard:\n", "Normal" },
           }
+
           for i, result in pairs(results) do
             if result.val and result.val ~= "" then
               vim.list_extend(messages, {
@@ -98,8 +103,11 @@ return {
               })
             end
           end
+
           vim.api.nvim_echo(messages, false, {})
+
           local result = results[vim.fn.getcharstr()]
+
           if result and result.val and result.val ~= "" then
             vim.notify("Copied: " .. result.val)
             vim.fn.setreg("+", result.val)

@@ -4,3 +4,7 @@ documentId
 documentId
 documentId
 midName
+config
+eslint
+prettierrc
+scss
