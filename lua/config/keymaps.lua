@@ -7,7 +7,6 @@
 -- vim.keymap.del("n", "<leader>l")
 vim.keymap.del("n", "<S-h>")
 vim.keymap.del("n", "<S-l>")
-vim.keymap.del("n", "<leader>s")
 
 vim.keymap.set("n", "<leader>cn", "<cmd>Navbuddy<cr>", { desc = "Navbuddy" })
 
