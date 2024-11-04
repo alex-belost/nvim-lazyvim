@@ -1,9 +1,15 @@
 return {
   {
     "catppuccin/nvim",
-    lazy = true,
     name = "catppuccin",
+    priority = 1000,
     opts = {
+      custom_highlights = function(colors)
+        return {
+          LineNr = { fg = colors.peach }, -- Change to the desired color for line numbers
+          CursorLineNr = { fg = colors.lavender }, -- Change to the desired color for the current line number
+        }
+      end,
       integrations = {
         aerial = true,
         alpha = true,

@@ -7,9 +7,11 @@ return {
           settings = {
             tailwindCSS = {
               experimental = {
+                classAttributes = { "class", ":class", "className" },
                 classRegex = {
-                  "@?class\\(([^]*)\\)",
-                  "'([^']*)'",
+                  "@?class\\(([^]*)\\)", -- Matches `@class(...)` or `class(...)`
+                  "'([^']*)'", -- Matches single-quoted classes
+                  "class:\\s*[\"']([^\"']*)[\"']", -- Matches `class: ''` or `class: ""`
                 },
               },
             },
