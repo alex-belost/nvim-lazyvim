@@ -13,7 +13,7 @@ return {
       integrations = {
         aerial = true,
         alpha = true,
-        cmp = true,
+        -- cmp = true,
         dashboard = true,
         flash = true,
         gitsigns = true,

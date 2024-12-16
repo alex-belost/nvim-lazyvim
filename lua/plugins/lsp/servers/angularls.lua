@@ -1,7 +1,14 @@
 local util = require("lspconfig.util")
 
 return {
-  root_dir = util.root_pattern("angular.json", "tsconfig.json", "package.json", "jsconfig.json", ".git"),
+  root_dir = util.root_pattern(
+    "angular.json",
+    "tsconfig.json",
+    "package.json",
+    "jsconfig.json",
+    "jsconfig.lib.json",
+    ".git"
+  ),
   settings = {
     angular = {
       -- Enable or disable specific features
@@ -12,6 +19,10 @@ return {
         logFile = "/Users/alex.belost/.config/nvim/logs/angularls.log", -- Specify the log file location
         logVerbosity = "verbose", -- Set the log verbosity (can be "off", "normal", "verbose")
         logLevel = "info", -- Set the log level (can be "info", "warn", "error")
+      },
+      -- Enable Angular Elements support
+      elements = {
+        enabled = true, -- Activate Angular Elements support
       },
     },
   },
